@@ -1,0 +1,14 @@
+# 🎯 GRITA: "Configuración de Netlify para despliegue"
+
+[build]
+  # Comando de construcción
+  command = "npm run build"
+
+  # Directorio de salida
+  publish = "out"
+
+# Configuración de redirecciones para SPA
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
