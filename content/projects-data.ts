@@ -112,8 +112,8 @@ export const personalInfo = {
   email: "becerrarodriguezjulian@gmail.com",
   phone: "+573212001539",
   location: "Bucaramanga, Santander - Colombia",
-  github: "https://github.com/julian-becerra",
-  linkedin: "https://linkedin.com/in/julian-becerra",
+  github: "https://github.com/julianbecerra13",
+  linkedin: "https://www.linkedin.com/in/julian-becerra-rodriguez-21060018b",
 };
 
 // 🎯 GRITA: "Habilidades técnicas"
