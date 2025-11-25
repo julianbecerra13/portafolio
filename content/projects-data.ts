@@ -43,10 +43,12 @@ export const projects: Project[] = [
   },
   {
     id: 4,
-    title: "BookingSystem - Sistema de Reservas",
-    description: "Sistema de reservas empresarial con Angular 17. Calendario interactivo, selección de servicios, formularios reactivos con validación, confirmación de reservas y vista de historial. Arquitectura escalable con RxJS. (Próximamente)",
-    technologies: ["Angular 17", "TypeScript", "Angular Material", "RxJS", "SCSS"],
+    title: "MediBook - Sistema de Citas Medicas",
+    description: "Sistema de gestion de citas medicas con Angular 17. Dashboard con estadisticas, calendario semanal interactivo, wizard de nueva cita paso a paso, gestion de reservas con filtros, catalogo de servicios y configuracion. Diseño profesional teal/medico con Angular Signals.",
+    technologies: ["Angular 17", "TypeScript", "Angular Material", "Angular Signals", "SCSS"],
     imageUrl: "/projects/booking-system.jpg",
+    githubUrl: "https://github.com/julianbecerra13/medibook",
+    liveUrl: "https://boisterous-donut-5dad22.netlify.app",
     featured: true,
   },
 ];
