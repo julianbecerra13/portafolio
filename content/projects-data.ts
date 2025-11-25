@@ -14,9 +14,11 @@ export const projects: Project[] = [
   {
     id: 1,
     title: "TechStore - E-commerce de Productos Tech",
-    description: "E-commerce moderno construido con Next.js 15, featuring catálogo de productos con filtros avanzados, carrito de compras persistente con localStorage, búsqueda en tiempo real, wishlist y checkout simulado. Diseño responsive con Tailwind CSS. (En desarrollo)",
+    description: "E-commerce moderno construido con Next.js 15, featuring catálogo de productos con filtros avanzados, carrito de compras persistente con localStorage, búsqueda en tiempo real, wishlist y checkout simulado. Diseño responsive con Tailwind CSS.",
     technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "Zustand", "Framer Motion"],
     imageUrl: "/projects/techstore.jpg",
+    githubUrl: "https://github.com/julianbecerra13/techstore",
+    liveUrl: "https://lovely-kashata-700da1.netlify.app",
     featured: true,
   },
   {
