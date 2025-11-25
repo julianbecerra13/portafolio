@@ -24,9 +24,11 @@ export const projects: Project[] = [
   {
     id: 2,
     title: "SalesAnalytics - Dashboard de Ventas",
-    description: "Dashboard interactivo para análisis de ventas con React 18. Incluye gráficos dinámicos con Recharts, tablas interactivas, filtros por fecha, KPIs animados y exportación de reportes. Perfecto para visualización de datos empresariales. (Próximamente)",
-    technologies: ["React 18", "TypeScript", "Recharts", "Material-UI", "Context API"],
+    description: "Dashboard interactivo para análisis de ventas con React 18. Incluye gráficos dinámicos con Recharts, tablas interactivas con filtros avanzados, KPIs animados, centro de reportes, análisis comparativo y configuración de usuario. Navegación completa con React Router.",
+    technologies: ["React 18", "TypeScript", "Recharts", "Material-UI", "React Router"],
     imageUrl: "/projects/sales-dashboard.jpg",
+    githubUrl: "https://github.com/julianbecerra13/sales-analytics",
+    liveUrl: "https://wondrous-smakager-1dc987.netlify.app",
     featured: true,
   },
   {
