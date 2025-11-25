@@ -34,9 +34,11 @@ export const projects: Project[] = [
   {
     id: 3,
     title: "InventoryPro - Sistema de Gestión",
-    description: "Aplicación de gestión de inventario desarrollada con Vue 3. CRUD completo de productos, gestión de categorías, control de stock, alertas de stock bajo, búsqueda avanzada y filtros. Diseño moderno con PrimeVue. (Próximamente)",
-    technologies: ["Vue 3", "TypeScript", "Pinia", "PrimeVue", "Vite"],
+    description: "Sistema de gestión de inventario con Vue 3. Dashboard con estadísticas y gráficos, CRUD completo de productos, gestión de categorías con colores, alertas de stock bajo con reabastecimiento rápido y configuración de usuario.",
+    technologies: ["Vue 3", "TypeScript", "Pinia", "Chart.js", "Vue Router"],
     imageUrl: "/projects/inventory-pro.jpg",
+    githubUrl: "https://github.com/julianbecerra13/inventory-pro",
+    liveUrl: "https://startling-fenglisu-e50674.netlify.app",
     featured: true,
   },
   {
