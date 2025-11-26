@@ -61,6 +61,16 @@ export const projects: Project[] = [
     liveUrl: "https://cute-speculoos-24ffb9.netlify.app",
     featured: true,
   },
+  {
+    id: 6,
+    title: "TaskFlow - Gestor de Tareas",
+    description: "App de gestion de tareas con categorias, prioridades, fechas de vencimiento, seguimiento de progreso, filtros por categoria, tabs de pendientes/completadas y tema naranja moderno.",
+    technologies: ["Flutter", "Dart", "Provider", "intl"],
+    imageUrl: "/projects/task-flow.jpg",
+    githubUrl: "https://github.com/julianbecerra13/task-flow",
+    liveUrl: "https://joyful-crumble-b0d334.netlify.app",
+    featured: true,
+  },
 ];
 
 // 🎯 GRITA: "Experiencia laboral profesional"
