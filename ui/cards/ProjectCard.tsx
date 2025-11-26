@@ -11,9 +11,11 @@ import {
   SiVuedotjs,
   SiAngular,
   SiChartdotjs,
-  SiFramer,
   SiSass,
-  SiMui
+  SiMui,
+  SiVite,
+  SiPrimevue,
+  SiReactivex
 } from "react-icons/si";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 import { TbBrandReactNative } from "react-icons/tb";
@@ -23,27 +25,22 @@ interface ProjectCardProps {
 }
 
 const techIcons: Record<string, { icon: React.ElementType; color: string }> = {
-  "Next.js 15": { icon: SiNextdotjs, color: "#ffffff" },
   "Next.js": { icon: SiNextdotjs, color: "#ffffff" },
   "TypeScript": { icon: SiTypescript, color: "#3178c6" },
   "Tailwind CSS": { icon: SiTailwindcss, color: "#06b6d4" },
-  "React 18": { icon: SiReact, color: "#61dafb" },
   "React": { icon: SiReact, color: "#61dafb" },
   "Vue 3": { icon: SiVuedotjs, color: "#42b883" },
-  "Vue": { icon: SiVuedotjs, color: "#42b883" },
   "Angular 17": { icon: SiAngular, color: "#dd0031" },
-  "Angular": { icon: SiAngular, color: "#dd0031" },
+  "Vite": { icon: SiVite, color: "#646cff" },
+  "PrimeVue": { icon: SiPrimevue, color: "#41b883" },
   "Pinia": { icon: SiVuedotjs, color: "#ffd859" },
   "Chart.js": { icon: SiChartdotjs, color: "#ff6384" },
   "Recharts": { icon: SiChartdotjs, color: "#8884d8" },
-  "Framer Motion": { icon: SiFramer, color: "#bb4b96" },
   "SCSS": { icon: SiSass, color: "#cc6699" },
   "Zustand": { icon: TbBrandReactNative, color: "#764abc" },
   "Material-UI": { icon: SiMui, color: "#007fff" },
   "Angular Material": { icon: SiMui, color: "#ffc107" },
-  "Angular Signals": { icon: SiAngular, color: "#dd0031" },
-  "React Router": { icon: SiReact, color: "#ca4245" },
-  "Vue Router": { icon: SiVuedotjs, color: "#42b883" },
+  "RxJS": { icon: SiReactivex, color: "#b7178c" },
 };
 
 const projectGradients: Record<number, string> = {
