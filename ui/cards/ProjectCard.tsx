@@ -15,7 +15,9 @@ import {
   SiMui,
   SiVite,
   SiPrimevue,
-  SiReactivex
+  SiReactivex,
+  SiFlutter,
+  SiDart
 } from "react-icons/si";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 import { TbBrandReactNative } from "react-icons/tb";
@@ -41,6 +43,10 @@ const techIcons: Record<string, { icon: React.ElementType; color: string }> = {
   "Material-UI": { icon: SiMui, color: "#007fff" },
   "Angular Material": { icon: SiMui, color: "#ffc107" },
   "RxJS": { icon: SiReactivex, color: "#b7178c" },
+  "Flutter": { icon: SiFlutter, color: "#02569B" },
+  "Dart": { icon: SiDart, color: "#0175C2" },
+  "Provider": { icon: SiFlutter, color: "#54C5F8" },
+  "fl_chart": { icon: SiChartdotjs, color: "#6C63FF" },
 };
 
 const projectGradients: Record<number, string> = {
@@ -48,6 +54,7 @@ const projectGradients: Record<number, string> = {
   2: "from-slate-900 via-purple-900 to-pink-900", // SalesAnalytics - React
   3: "from-slate-900 via-emerald-900 to-teal-900", // InventoryPro - Vue
   4: "from-slate-900 via-red-900 to-orange-900", // MediBook - Angular
+  5: "from-slate-900 via-sky-900 to-blue-900", // WalletApp - Flutter
 };
 
 export function ProjectCard({ project }: ProjectCardProps) {

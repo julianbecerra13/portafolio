@@ -51,6 +51,16 @@ export const projects: Project[] = [
     liveUrl: "https://boisterous-donut-5dad22.netlify.app",
     featured: true,
   },
+  {
+    id: 5,
+    title: "WalletApp - Control de Finanzas",
+    description: "App de finanzas personales con dashboard de balance, grafico de gastos semanales, estadisticas por categoria con grafico de pie, agregar transacciones y tema oscuro moderno.",
+    technologies: ["Flutter", "Dart", "Provider", "fl_chart"],
+    imageUrl: "/projects/wallet-app.jpg",
+    githubUrl: "https://github.com/julianbecerra13/wallet-app",
+    liveUrl: "https://cute-speculoos-24ffb9.netlify.app",
+    featured: true,
+  },
 ];
 
 // 🎯 GRITA: "Experiencia laboral profesional"
