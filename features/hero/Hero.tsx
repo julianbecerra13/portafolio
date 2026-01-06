@@ -1,4 +1,3 @@
-// 🎯 GRITA: "Sección principal de bienvenida con mi presentación"
 "use client";
 
 import { motion } from "framer-motion";
@@ -49,7 +48,9 @@ export function Hero() {
             transition={{ duration: 0.6 }}
             className="mb-6"
           >
-            <span className="text-purple-400 text-lg font-semibold">Hola, soy</span>
+            <span className="text-purple-400 text-lg font-semibold">
+              Hola, soy
+            </span>
           </motion.div>
 
           {/* Nombre con animación */}
@@ -57,7 +58,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-6xl md:text-8xl font-bold text-white mb-6"
+            className="text-5xl md:text-7xl font-bold text-white mb-4"
           >
             {personalInfo.name}
           </motion.h1>
@@ -67,17 +68,27 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-3xl md:text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-8"
+            className="text-2xl md:text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-2"
           >
             {personalInfo.title}
           </motion.h2>
+
+          {/* Subtítulo con stack */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="text-xl text-gray-400 mb-8"
+          >
+            {personalInfo.subtitle}
+          </motion.p>
 
           {/* Bio */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed"
           >
             {personalInfo.bio}
           </motion.p>
@@ -89,10 +100,22 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <PrimaryButton onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}>
-              Ver Experiencia
+            <PrimaryButton
+              onClick={() =>
+                document
+                  .getElementById("projects")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              Ver Proyectos
             </PrimaryButton>
-            <SecondaryButton onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+            <SecondaryButton
+              onClick={() =>
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
               Contáctame
             </SecondaryButton>
           </motion.div>
@@ -109,7 +132,19 @@ export function Hero() {
               transition={{ duration: 2, repeat: Infinity }}
               className="text-purple-400"
             >
-              ↓
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                />
+              </svg>
             </motion.div>
           </motion.div>
         </div>
