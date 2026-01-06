@@ -140,7 +140,7 @@ export const workExperience: WorkExperience[] = [
     period: "Julio 2024 - Septiembre 2025",
     current: false,
     description:
-      "Desarrollo completo de aplicación empresarial desde cero. Diseño de arquitectura backend y despliegue en producción.",
+      "Desarrollé el backend en Go (Gin) para una app de citas (matches, chat en tiempo real y videollamadas), con autenticación JWT y APIs REST. Despliegue en servidor remoto con Docker.",
     achievements: [
       "Desarrollo de backend en Go (Gin) con MySQL",
       "Autenticación JWT",
@@ -187,7 +187,7 @@ export const personalInfo = {
   name: "Julian Becerra",
   title: "Full Stack Developer",
   subtitle: "Go · Node.js · React · Flutter",
-  bio: "Construyo APIs escalables y interfaces que convierten usuarios en clientes. +3 años creando productos digitales para startups en Colombia y LATAM.",
+  bio: "Construyo APIs escalables y interfaces que convierten usuarios en clientes. Más de 3 años creando productos digitales para startups en Colombia y LATAM.",
   bioExtended: `Soy desarrollador Full Stack con base en Bucaramanga, Colombia.
 
 Mi stack principal: Go y Node.js para APIs, React/Next.js para web, Flutter para móvil. He trabajado en startups donde hice de todo: desde diseñar la base de datos hasta integrar pasarelas de pago.
