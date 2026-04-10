@@ -2,8 +2,9 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import { ArrowDown, Download, Github, Linkedin } from "lucide-react";
+import { ArrowDown, Github, Linkedin } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { CVDownload } from "@/components/shared/cv-download";
 
 const roles = [
   "Full Stack Developer",
@@ -255,14 +256,7 @@ export function Hero() {
             Ver proyectos
             <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-0.5 transition-transform" />
           </MagneticButton>
-          <MagneticButton
-            href="/resume/Julian_Becerra_CV_Fullstack.pdf"
-            download=""
-            className="group inline-flex h-12 items-center justify-center rounded-lg border border-border bg-background/50 backdrop-blur-sm px-7 text-sm font-medium text-foreground shadow-sm hover:bg-accent hover:border-primary/30 transition-all duration-300"
-          >
-            Descargar CV
-            <Download className="ml-2 h-4 w-4 group-hover:-translate-y-0.5 transition-transform" />
-          </MagneticButton>
+          <CVDownload variant="outline" />
         </motion.div>
 
         <motion.div
