@@ -11,6 +11,7 @@ import {
 import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/shared/section-header";
 import { skillCategories } from "@/lib/constants";
+import { useLocale } from "@/hooks/use-locale";
 
 const iconMap: Record<string, React.ReactNode> = {
   Server: <Server className="h-5 w-5" />,
@@ -60,12 +61,13 @@ const badgeVariants = {
 };
 
 export function Skills() {
+  const { t } = useLocale();
   return (
     <section id="skills" className="py-24 px-6 bg-muted/30">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
-          title="Stack Tecnologico"
-          subtitle="Tecnologias que uso diariamente para construir productos"
+          title={t.skills.title}
+          subtitle={t.skills.subtitle}
         />
 
         <motion.div

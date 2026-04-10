@@ -4,6 +4,7 @@ import { Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/shared/section-header";
 import { experiences } from "@/lib/constants";
+import { useLocale } from "@/hooks/use-locale";
 
 const lineVariants = {
   hidden: { scaleY: 0 },
@@ -45,12 +46,13 @@ const cardVariants = {
 };
 
 export function Experience() {
+  const { t } = useLocale();
   return (
     <section id="experiencia" className="py-24 px-6 bg-muted/30">
       <div className="mx-auto max-w-4xl">
         <SectionHeader
-          title="Experiencia"
-          subtitle="Mi trayectoria profesional construyendo productos digitales"
+          title={t.experience.title}
+          subtitle={t.experience.subtitle}
         />
 
         <div className="relative">
@@ -134,7 +136,7 @@ export function Experience() {
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
                         <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
                       </span>
-                      Actual
+                      {t.experience.current}
                     </span>
                   )}
 

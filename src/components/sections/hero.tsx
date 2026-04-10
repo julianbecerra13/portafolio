@@ -5,6 +5,7 @@ import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { ArrowDown, Github, Linkedin } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { CVDownload } from "@/components/shared/cv-download";
+import { useLocale } from "@/hooks/use-locale";
 
 const roles = [
   "Full Stack Developer",
@@ -128,6 +129,7 @@ function MagneticButton({
 }
 
 export function Hero() {
+  const { t } = useLocale();
   const typedText = useTypingEffect(roles);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -192,7 +194,7 @@ export function Hero() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
             </span>
             <span className="text-sm font-medium text-primary">
-              Disponible para proyectos
+              {t.hero.available}
             </span>
           </div>
         </motion.div>
@@ -236,11 +238,7 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed"
         >
-          Construyo productos digitales end-to-end con{" "}
-          <span className="text-foreground font-medium">Go</span>,{" "}
-          <span className="text-foreground font-medium">Next.js</span> y{" "}
-          <span className="text-foreground font-medium">Flutter</span>.
-          +4 anos entregando plataformas SaaS, apps moviles y APIs escalables.
+          {t.hero.description}
         </motion.p>
 
         <motion.div
@@ -253,7 +251,7 @@ export function Hero() {
             href="#proyectos"
             className="group inline-flex h-12 items-center justify-center rounded-lg bg-primary px-7 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:bg-primary/90 transition-all duration-300"
           >
-            Ver proyectos
+            {t.hero.viewProjects}
             <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-0.5 transition-transform" />
           </MagneticButton>
           <CVDownload variant="outline" />
@@ -293,7 +291,7 @@ export function Hero() {
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-xs text-muted-foreground/50">scroll</span>
+          <span className="text-xs text-muted-foreground/50">{t.hero.scroll}</span>
           <div className="h-8 w-5 rounded-full border border-muted-foreground/30 flex justify-center pt-1.5">
             <motion.div
               className="h-1.5 w-1.5 rounded-full bg-primary"
