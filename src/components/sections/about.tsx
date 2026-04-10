@@ -1,10 +1,47 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import { MapPin } from "lucide-react";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { SectionHeader } from "@/components/shared/section-header";
 import { siteConfig } from "@/config/site";
 import { stats } from "@/lib/constants";
+
+function CountUp({ target, suffix = "" }: { target: string; suffix?: string }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true });
+  const numericValue = parseInt(target.replace(/\D/g, ""));
+  const prefix = target.startsWith("+") ? "+" : "";
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    let start = 0;
+    const duration = 2000;
+    const increment = numericValue / (duration / 16);
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= numericValue) {
+        setCount(numericValue);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+
+    return () => clearInterval(timer);
+  }, [isInView, numericValue]);
+
+  return (
+    <span ref={ref}>
+      {prefix}
+      {count}
+      {suffix}
+    </span>
+  );
+}
 
 export function About() {
   return (
@@ -52,18 +89,36 @@ export function About() {
 
           <AnimatedSection delay={0.2}>
             <div className="grid grid-cols-3 gap-4">
-              {stats.map((stat) => (
-                <div
+              {stats.map((stat, index) => (
+                <motion.div
                   key={stat.label}
-                  className="rounded-lg border border-border bg-card p-6 text-center"
+                  initial={{ opacity: 0, scale: 0.5, rotateY: 90 }}
+                  whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.15,
+                    type: "spring",
+                    stiffness: 100,
+                  }}
+                  whileHover={{
+                    scale: 1.05,
+                    borderColor: "var(--primary)",
+                    transition: { duration: 0.2 },
+                  }}
+                  className="rounded-lg border border-border bg-card p-6 text-center cursor-default"
                 >
                   <p className="text-3xl font-bold text-primary">
-                    {stat.value}
+                    <CountUp
+                      target={stat.value}
+                      suffix={stat.value.includes("+") ? "" : ""}
+                    />
+                    {stat.value.endsWith("+") ? "+" : ""}
                   </p>
                   <p className="mt-1 text-xs text-muted-foreground">
                     {stat.label}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </AnimatedSection>

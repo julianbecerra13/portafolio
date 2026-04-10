@@ -11,6 +11,7 @@ export const siteConfig = {
     github: "https://github.com/julianbecerra13",
     linkedin:
       "https://www.linkedin.com/in/julian-becerra-rodriguez-21060018b",
+    freelancer: "https://www.freelancer.com/u/DarkPerridev",
   },
   navItems: [
     { label: "Inicio", href: "#inicio" },
