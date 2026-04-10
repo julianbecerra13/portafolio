@@ -1,9 +1,10 @@
 "use client";
 
-import { Mail, MapPin, Download, Github, Linkedin, Briefcase } from "lucide-react";
+import { Mail, MapPin, Github, Linkedin, Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { SectionHeader } from "@/components/shared/section-header";
+import { CVDownload } from "@/components/shared/cv-download";
 import { siteConfig } from "@/config/site";
 
 const socialLinks = [
@@ -55,16 +56,7 @@ export function Contact() {
                 <Mail className="mr-2 h-4 w-4" />
                 Enviar email
               </motion.a>
-              <motion.a
-                href="/resume/Julian_Becerra_CV_Fullstack.pdf"
-                download
-                className="inline-flex h-11 items-center justify-center rounded-md border border-border bg-background px-6 text-sm font-medium text-foreground shadow-sm hover:bg-accent hover:border-primary/30 transition-all duration-300"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Download className="mr-2 h-4 w-4" />
-                Descargar CV
-              </motion.a>
+              <CVDownload variant="outline" />
             </div>
 
             <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-6">
