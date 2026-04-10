@@ -278,6 +278,40 @@ export const skillCategories: SkillCategory[] = [
   },
 ];
 
+export interface Testimonial {
+  name: string;
+  role: string;
+  company: string;
+  text: string;
+}
+
+export const testimonials: Testimonial[] = [
+  {
+    name: "Carlos Martinez",
+    role: "CEO",
+    company: "GSA Marketing Hub",
+    text: "Julian es un desarrollador excepcional. Construyo toda nuestra plataforma SaaS de principio a fin: frontend, backend y app movil. Su capacidad para manejar multiples tecnologias y entregar con calidad es impresionante.",
+  },
+  {
+    name: "Andrea Lopez",
+    role: "Product Manager",
+    company: "Inovot",
+    text: "Trabajar con Julian fue una excelente experiencia. Entrego la app movil y el panel web en tiempo record, integro la pasarela de pagos sin problemas y siempre estuvo dispuesto a resolver cualquier reto tecnico.",
+  },
+  {
+    name: "Miguel Torres",
+    role: "CTO",
+    company: "L4F",
+    text: "Julian diseno y construyo nuestro backend completo en Go. Su conocimiento en APIs REST, autenticacion JWT y despliegue con Docker fue clave para lanzar nuestra app de citas con chat en tiempo real.",
+  },
+  {
+    name: "Laura Sanchez",
+    role: "Fundadora",
+    company: "Conper",
+    text: "Contratamos a Julian para 3 proyectos distintos y en todos entrego apps funcionales, bien estructuradas y listas para produccion. Su integracion de Google Maps y Stripe fue impecable.",
+  },
+];
+
 export const stats = [
   { label: "Anos de experiencia", value: "+4" },
   { label: "Proyectos entregados", value: "10+" },

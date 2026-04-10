@@ -6,6 +6,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { SectionHeader } from "@/components/shared/section-header";
 import { projects } from "@/lib/constants";
+import { useLocale } from "@/hooks/use-locale";
 
 function TiltCard({ children, className }: { children: React.ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -74,12 +75,13 @@ function TiltCard({ children, className }: { children: React.ReactNode; classNam
 }
 
 export function Projects() {
+  const { t } = useLocale();
   return (
     <section id="proyectos" className="py-24 px-6">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
-          title="Proyectos"
-          subtitle="Productos reales que he construido y entregado"
+          title={t.projects.title}
+          subtitle={t.projects.subtitle}
         />
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -6,6 +6,7 @@ import { AnimatedSection } from "@/components/shared/animated-section";
 import { SectionHeader } from "@/components/shared/section-header";
 import { CVDownload } from "@/components/shared/cv-download";
 import { siteConfig } from "@/config/site";
+import { useLocale } from "@/hooks/use-locale";
 
 const socialLinks = [
   {
@@ -31,19 +32,19 @@ const socialLinks = [
 ];
 
 export function Contact() {
+  const { t } = useLocale();
   return (
     <section id="contacto" className="py-24 px-6">
       <div className="mx-auto max-w-2xl">
         <SectionHeader
-          title="Contacto"
-          subtitle="Estoy abierto a nuevas oportunidades y proyectos interesantes"
+          title={t.contact.title}
+          subtitle={t.contact.subtitle}
         />
 
         <AnimatedSection delay={0.1}>
           <div className="rounded-lg border border-border bg-card p-8 text-center">
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              Si tienes un proyecto en mente, una oportunidad laboral o
-              simplemente quieres conectar, no dudes en escribirme.
+              {t.contact.description}
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
@@ -54,7 +55,7 @@ export function Contact() {
                 whileTap={{ scale: 0.98 }}
               >
                 <Mail className="mr-2 h-4 w-4" />
-                Enviar email
+                {t.contact.sendEmail}
               </motion.a>
               <CVDownload variant="outline" />
             </div>

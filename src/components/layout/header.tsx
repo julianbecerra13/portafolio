@@ -5,7 +5,9 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 import { ThemeToggle } from "./theme-toggle";
+import { LocaleToggle } from "./locale-toggle";
 import { useScrollSpy } from "@/hooks/use-scroll-spy";
+import { useLocale } from "@/hooks/use-locale";
 
 const sectionIds = siteConfig.navItems.map((item) =>
   item.href.replace("#", "")
@@ -15,6 +17,8 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const activeId = useScrollSpy(sectionIds);
+  const { t } = useLocale();
+  const navLabels = [t.nav.home, t.nav.about, t.nav.experience, t.nav.projects, t.nav.skills, t.nav.contact];
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -42,7 +46,7 @@ export function Header() {
 
         {/* Desktop nav */}
         <ul className="hidden md:flex items-center gap-1">
-          {siteConfig.navItems.map((item) => {
+          {siteConfig.navItems.map((item, index) => {
             const id = item.href.replace("#", "");
             return (
               <li key={item.href}>
@@ -55,18 +59,20 @@ export function Header() {
                       : "text-muted-foreground hover:text-foreground"
                   )}
                 >
-                  {item.label}
+                  {navLabels[index]}
                 </a>
               </li>
             );
           })}
-          <li className="ml-2">
+          <li className="ml-2 flex items-center gap-1">
+            <LocaleToggle />
             <ThemeToggle />
           </li>
         </ul>
 
         {/* Mobile controls */}
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-1 md:hidden">
+          <LocaleToggle />
           <ThemeToggle />
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

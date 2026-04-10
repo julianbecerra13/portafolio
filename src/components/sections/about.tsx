@@ -7,6 +7,7 @@ import { AnimatedSection } from "@/components/shared/animated-section";
 import { SectionHeader } from "@/components/shared/section-header";
 import { siteConfig } from "@/config/site";
 import { stats } from "@/lib/constants";
+import { useLocale } from "@/hooks/use-locale";
 
 function CountUp({ target, suffix = "" }: { target: string; suffix?: string }) {
   const [count, setCount] = useState(0);
@@ -44,12 +45,13 @@ function CountUp({ target, suffix = "" }: { target: string; suffix?: string }) {
 }
 
 export function About() {
+  const { t } = useLocale();
   return (
     <section id="sobre-mi" className="py-24 px-6">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
-          title="Sobre mi"
-          subtitle="Desarrollador Full Stack enfocado en productos end-to-end"
+          title={t.about.title}
+          subtitle={t.about.subtitle}
         />
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
