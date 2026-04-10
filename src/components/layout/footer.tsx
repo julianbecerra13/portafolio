@@ -1,4 +1,4 @@
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, Briefcase } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 export function Footer() {
@@ -27,6 +27,15 @@ export function Footer() {
             aria-label="LinkedIn"
           >
             <Linkedin className="h-5 w-5" />
+          </a>
+          <a
+            href={siteConfig.social.freelancer}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="Freelancer"
+          >
+            <Briefcase className="h-5 w-5" />
           </a>
         </div>
       </div>

@@ -1,9 +1,48 @@
 "use client";
 
 import { Briefcase } from "lucide-react";
-import { AnimatedSection } from "@/components/shared/animated-section";
+import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/shared/section-header";
 import { experiences } from "@/lib/constants";
+
+const lineVariants = {
+  hidden: { scaleY: 0 },
+  visible: {
+    scaleY: 1,
+    transition: { duration: 1.5, ease: "easeInOut" as const },
+  },
+};
+
+const dotVariants = {
+  hidden: { scale: 0, opacity: 0 },
+  visible: (i: number) => ({
+    scale: 1,
+    opacity: 1,
+    transition: {
+      delay: i * 0.2 + 0.3,
+      type: "spring" as const,
+      stiffness: 200,
+      damping: 15,
+    },
+  }),
+};
+
+const cardVariants = {
+  hidden: (i: number) => ({
+    opacity: 0,
+    x: i % 2 === 0 ? 60 : -60,
+  }),
+  visible: (i: number) => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: i * 0.2 + 0.4,
+      duration: 0.6,
+      type: "spring" as const,
+      stiffness: 80,
+    },
+  }),
+};
 
 export function Experience() {
   return (
@@ -15,13 +54,18 @@ export function Experience() {
         />
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-[19px] top-0 bottom-0 w-px bg-border md:left-1/2 md:-translate-x-px" />
+          {/* Animated timeline line */}
+          <motion.div
+            variants={lineVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="absolute left-[19px] top-0 bottom-0 w-px bg-gradient-to-b from-primary via-primary/50 to-transparent origin-top md:left-1/2 md:-translate-x-px"
+          />
 
           {experiences.map((exp, index) => (
-            <AnimatedSection
+            <div
               key={exp.id}
-              delay={index * 0.1}
               className="relative mb-12 last:mb-0"
             >
               <div
@@ -29,15 +73,44 @@ export function Experience() {
                   index % 2 === 0 ? "md:flex-row-reverse" : ""
                 }`}
               >
-                {/* Timeline dot */}
-                <div className="absolute left-[11px] md:left-1/2 md:-translate-x-1/2 mt-1.5">
-                  <div className="flex h-4 w-4 items-center justify-center rounded-full border-2 border-primary bg-background">
+                {/* Animated timeline dot */}
+                <motion.div
+                  custom={index}
+                  variants={dotVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="absolute left-[11px] md:left-1/2 md:-translate-x-1/2 mt-1.5"
+                >
+                  <motion.div
+                    className="flex h-4 w-4 items-center justify-center rounded-full border-2 border-primary bg-background"
+                    whileHover={{ scale: 1.5 }}
+                  >
                     <div className="h-1.5 w-1.5 rounded-full bg-primary" />
-                  </div>
-                </div>
+                  </motion.div>
+                  {exp.current && (
+                    <motion.div
+                      className="absolute inset-0 rounded-full border-2 border-primary"
+                      animate={{ scale: [1, 1.8, 1], opacity: [0.5, 0, 0.5] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    />
+                  )}
+                </motion.div>
 
                 {/* Content card */}
-                <div className="ml-10 md:ml-0 md:w-[calc(50%-2rem)] rounded-lg border border-border bg-card p-6">
+                <motion.div
+                  custom={index}
+                  variants={cardVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  whileHover={{
+                    y: -4,
+                    borderColor: "var(--primary)",
+                    transition: { duration: 0.2 },
+                  }}
+                  className="ml-10 md:ml-0 md:w-[calc(50%-2rem)] rounded-lg border border-border bg-card p-6 cursor-default"
+                >
                   <div className="flex items-start justify-between gap-2 mb-3">
                     <div>
                       <h3 className="font-semibold text-foreground">
@@ -57,6 +130,10 @@ export function Experience() {
 
                   {exp.current && (
                     <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary mb-3">
+                      <span className="relative flex h-1.5 w-1.5 mr-1.5">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+                        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
+                      </span>
                       Actual
                     </span>
                   )}
@@ -67,13 +144,17 @@ export function Experience() {
 
                   <ul className="space-y-1.5 mb-4">
                     {exp.achievements.slice(0, 4).map((achievement, i) => (
-                      <li
+                      <motion.li
                         key={i}
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.15 + i * 0.05 + 0.5 }}
                         className="flex items-start gap-2 text-sm text-muted-foreground"
                       >
                         <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
                         {achievement}
-                      </li>
+                      </motion.li>
                     ))}
                   </ul>
 
@@ -92,9 +173,9 @@ export function Experience() {
                       </span>
                     )}
                   </div>
-                </div>
+                </motion.div>
               </div>
-            </AnimatedSection>
+            </div>
           ))}
         </div>
       </div>

@@ -1,9 +1,33 @@
 "use client";
 
-import { Mail, MapPin, Download, Github, Linkedin } from "lucide-react";
+import { Mail, MapPin, Download, Github, Linkedin, Briefcase } from "lucide-react";
+import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { SectionHeader } from "@/components/shared/section-header";
 import { siteConfig } from "@/config/site";
+
+const socialLinks = [
+  {
+    name: "GitHub",
+    href: siteConfig.social.github,
+    icon: Github,
+  },
+  {
+    name: "LinkedIn",
+    href: siteConfig.social.linkedin,
+    icon: Linkedin,
+  },
+  {
+    name: "Freelancer",
+    href: siteConfig.social.freelancer,
+    icon: Briefcase,
+  },
+  {
+    name: "Email",
+    href: `mailto:${siteConfig.email}`,
+    icon: Mail,
+  },
+];
 
 export function Contact() {
   return (
@@ -22,56 +46,51 @@ export function Contact() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-              <a
+              <motion.a
                 href={`mailto:${siteConfig.email}`}
-                className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground shadow-sm hover:bg-primary/90 transition-colors"
+                className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:bg-primary/90 transition-all duration-300"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <Mail className="mr-2 h-4 w-4" />
                 Enviar email
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="/resume/Julian_Becerra_CV_Fullstack.pdf"
                 download
-                className="inline-flex h-11 items-center justify-center rounded-md border border-border bg-background px-6 text-sm font-medium text-foreground shadow-sm hover:bg-accent transition-colors"
+                className="inline-flex h-11 items-center justify-center rounded-md border border-border bg-background px-6 text-sm font-medium text-foreground shadow-sm hover:bg-accent hover:border-primary/30 transition-all duration-300"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <Download className="mr-2 h-4 w-4" />
                 Descargar CV
-              </a>
+              </motion.a>
             </div>
 
-            <div className="flex items-center justify-center gap-6 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4" />
-                {siteConfig.location}
-              </div>
+            <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-6">
+              <MapPin className="h-4 w-4" />
+              {siteConfig.location}
             </div>
 
-            <div className="flex items-center justify-center gap-4 mt-6 pt-6 border-t border-border">
-              <a
-                href={siteConfig.social.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-md text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
-                aria-label="GitHub"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-              <a
-                href={siteConfig.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-md text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-md text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
-                aria-label="Email"
-              >
-                <Mail className="h-5 w-5" />
-              </a>
+            <div className="flex items-center justify-center gap-3 pt-6 border-t border-border">
+              {socialLinks.map((link, i) => (
+                <motion.a
+                  key={link.name}
+                  href={link.href}
+                  target={link.name === "Email" ? undefined : "_blank"}
+                  rel={link.name === "Email" ? undefined : "noopener noreferrer"}
+                  className="group flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background text-muted-foreground hover:text-primary hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300"
+                  whileHover={{ scale: 1.15, y: -3 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 + 0.3 }}
+                  aria-label={link.name}
+                >
+                  <link.icon className="h-5 w-5" />
+                </motion.a>
+              ))}
             </div>
           </div>
         </AnimatedSection>
