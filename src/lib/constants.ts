@@ -196,16 +196,76 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "floristeria",
-    title: "Floristeria",
+    id: "idea-forge",
+    title: "Idea Forge",
     description:
-      "Aplicacion web para floreria con catalogo de productos, gestion de pedidos y panel de administracion.",
-    technologies: ["Next.js", "TypeScript", "Drizzle ORM", "Vercel"],
-    githubUrl: "https://github.com/julianbecerra13/floristeria",
+      "Plataforma con agentes de IA que guian el proceso completo de diseno de software: desde la idea inicial hasta la arquitectura tecnica.",
+    technologies: [
+      "Next.js 15",
+      "Go",
+      "PostgreSQL",
+      "Google Genkit",
+      "Gemini 2.0",
+      "Docker",
+    ],
+    githubUrl: "https://github.com/julianbecerra13/idea-forge",
     highlights: [
-      "Catalogo de productos con busqueda",
-      "Drizzle ORM para manejo de datos",
-      "Deploy automatico en Vercel",
+      "3 agentes IA especializados (ideacion, analisis, arquitectura)",
+      "Backend Go con Clean Architecture",
+      "Fases interconectadas que construyen sobre las anteriores",
+    ],
+  },
+  {
+    id: "prominence-bank",
+    title: "Prominence Bank",
+    description:
+      "Plataforma bancaria completa con banca central y digital: contabilidad de doble partida, KYC, transferencias, instrumentos financieros y auditoria.",
+    technologies: [
+      "Django",
+      "React",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+    ],
+    githubUrl: "https://github.com/julianbecerra13/-prominence-bank-platform",
+    highlights: [
+      "Motor de contabilidad con partida doble",
+      "Flujo maker-checker para aprobaciones",
+      "9 tipos de instrumentos bancarios",
+    ],
+  },
+  {
+    id: "mern-realtime",
+    title: "MERN Realtime Platform",
+    description:
+      "Aplicacion full stack con autenticacion JWT, OAuth de Google, y sistema de notificaciones en tiempo real con WebSockets.",
+    technologies: [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Socket.io",
+      "JWT",
+      "Jest",
+    ],
+    githubUrl: "https://github.com/julianbecerra13/mern-realtime-platform",
+    highlights: [
+      "Notificaciones real-time con Socket.io",
+      "Auth JWT con rotacion de tokens + Google OAuth",
+      "Testing con Jest y Supertest",
+    ],
+  },
+  {
+    id: "aico",
+    title: "AICO - Landing Page",
+    description:
+      "Sitio web oficial para organizacion politica con mapa interactivo de Colombia, sistema de autenticacion y diseno responsive.",
+    technologies: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    githubUrl: "https://github.com/julianbecerra13/aico",
+    liveUrl: "https://aico-npzo.vercel.app/",
+    highlights: [
+      "Mapa interactivo de Colombia por departamentos",
+      "Sistema de autenticacion integrado",
+      "Animaciones con Framer Motion",
     ],
   },
 ];
