@@ -268,6 +268,46 @@ export const projects: Project[] = [
       "Animaciones con Framer Motion",
     ],
   },
+  {
+    id: "vecindario-app",
+    title: "Vecindario App",
+    description:
+      "App movil para comunidades residenciales en Colombia con autenticacion social, notificaciones push, calendario de eventos y gestion de espacios comunes.",
+    technologies: [
+      "Flutter",
+      "Firebase",
+      "Riverpod",
+      "GoRouter",
+      "Cloud Functions",
+      "Firestore",
+    ],
+    githubUrl: "https://github.com/julianbecerra13/vecindario-app",
+    highlights: [
+      "Auth social con Google y Apple Sign-In",
+      "Notificaciones push con Firebase Messaging",
+      "Arquitectura modular por features con Riverpod",
+    ],
+  },
+  {
+    id: "floristeria",
+    title: "Floristeria - E-commerce",
+    description:
+      "E-commerce de floristeria con catalogo de productos, carrito de compras y base de datos serverless en Neon.",
+    technologies: [
+      "Next.js 16",
+      "React 19",
+      "Drizzle ORM",
+      "Neon (PostgreSQL)",
+      "Tailwind CSS",
+      "shadcn/ui",
+    ],
+    githubUrl: "https://github.com/julianbecerra13/floristeria",
+    highlights: [
+      "Base de datos serverless con Neon y Drizzle ORM",
+      "UI con shadcn/ui y Radix primitives",
+      "Catalogo dinamico con gestion de productos",
+    ],
+  },
 ];
 
 export const skillCategories: SkillCategory[] = [
@@ -374,6 +414,6 @@ export const testimonials: Testimonial[] = [
 
 export const stats = [
   { label: "Anos de experiencia", value: "+4" },
-  { label: "Proyectos entregados", value: "10+" },
+  { label: "Proyectos entregados", value: "12+" },
   { label: "Tecnologias dominadas", value: "15+" },
 ];
