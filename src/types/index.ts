@@ -32,3 +32,27 @@ export interface SocialLink {
   url: string;
   icon: string;
 }
+
+export interface Service {
+  id: string;
+  title: string;
+  description: string;
+  priceFrom: string;
+  duration: string;
+  features: string[];
+  highlighted?: boolean;
+}
+
+export interface ProcessStep {
+  id: string;
+  number: string;
+  title: string;
+  description: string;
+  duration: string;
+}
+
+export interface FAQItem {
+  id: string;
+  question: string;
+  answer: string;
+}

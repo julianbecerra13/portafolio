@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import Link from "next/link";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 import { ThemeToggle } from "./theme-toggle";
@@ -13,12 +14,13 @@ const sectionIds = siteConfig.navItems.map((item) =>
   item.href.replace("#", "")
 );
 
+type NavKey = keyof ReturnType<typeof useLocale>["t"]["nav"];
+
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const activeId = useScrollSpy(sectionIds);
   const { t } = useLocale();
-  const navLabels = [t.nav.home, t.nav.about, t.nav.experience, t.nav.projects, t.nav.skills, t.nav.contact];
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -38,7 +40,7 @@ export function Header() {
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <a
-          href="#inicio"
+          href="/#inicio"
           className="text-lg font-semibold tracking-tight text-foreground hover:text-primary transition-colors"
         >
           JB
@@ -46,7 +48,7 @@ export function Header() {
 
         {/* Desktop nav */}
         <ul className="hidden md:flex items-center gap-1">
-          {siteConfig.navItems.map((item, index) => {
+          {siteConfig.navItems.map((item) => {
             const id = item.href.replace("#", "");
             return (
               <li key={item.href}>
@@ -59,11 +61,20 @@ export function Header() {
                       : "text-muted-foreground hover:text-foreground"
                   )}
                 >
-                  {navLabels[index]}
+                  {t.nav[item.key as NavKey]}
                 </a>
               </li>
             );
           })}
+          <li className="ml-2">
+            <Link
+              href={siteConfig.cta.href}
+              className="group inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow-sm shadow-primary/20 hover:shadow-primary/40 hover:bg-primary/90 transition-all duration-300"
+            >
+              {t.nav.cta}
+              <ArrowRight className="ml-1.5 h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </li>
           <li className="ml-2 flex items-center gap-1">
             <LocaleToggle />
             <ThemeToggle />
@@ -99,10 +110,20 @@ export function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block px-3 py-2.5 text-sm rounded-md text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
                 >
-                  {item.label}
+                  {t.nav[item.key as NavKey]}
                 </a>
               </li>
             ))}
+            <li className="mt-2">
+              <Link
+                href={siteConfig.cta.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center justify-center w-full h-10 rounded-md bg-primary text-sm font-medium text-primary-foreground shadow-sm"
+              >
+                {t.nav.cta}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </li>
           </ul>
         </div>
       )}

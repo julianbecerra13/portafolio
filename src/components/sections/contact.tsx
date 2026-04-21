@@ -1,6 +1,7 @@
 "use client";
 
-import { Mail, MapPin, Github, Linkedin, Briefcase } from "lucide-react";
+import Link from "next/link";
+import { Mail, MapPin, Github, Linkedin, Briefcase, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { SectionHeader } from "@/components/shared/section-header";
@@ -48,9 +49,21 @@ export function Contact() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+              <motion.div
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Link
+                  href={siteConfig.cta.href}
+                  className="group inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:bg-primary/90 transition-all duration-300"
+                >
+                  {t.contact.requestQuote}
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              </motion.div>
               <motion.a
                 href={`mailto:${siteConfig.email}`}
-                className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:bg-primary/90 transition-all duration-300"
+                className="inline-flex h-11 items-center justify-center rounded-md border border-border bg-background/50 px-6 text-sm font-medium text-foreground hover:border-primary/30 hover:bg-accent transition-all duration-300"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >

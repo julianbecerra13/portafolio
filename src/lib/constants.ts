@@ -1,4 +1,4 @@
-import type { Experience, Project, SkillCategory } from "@/types";
+import type { Experience, FAQItem, ProcessStep, Project, Service, SkillCategory } from "@/types";
 
 export const experiences: Experience[] = [
   {
@@ -110,6 +110,46 @@ export const experiences: Experience[] = [
 ];
 
 export const projects: Project[] = [
+  {
+    id: "nova-agent",
+    title: "NOVA - AI Agent",
+    description:
+      "Agente IA autonomo para prospeccion B2B: investiga empresas desde su web, redacta emails personalizados con Claude y gestiona cola de aprobacion humana con envio automatizado.",
+    technologies: [
+      "Go 1.26",
+      "Chi",
+      "PostgreSQL",
+      "Claude API",
+      "Resend",
+      "Docker",
+    ],
+    githubUrl: "https://github.com/julianbecerra13/nova",
+    highlights: [
+      "Prompt caching en Claude reduce 90% el costo de tokens",
+      "Pipeline research -> draft -> approve -> send con 9 endpoints REST",
+      "Arquitectura modular con pgx pool y rate limiting por hora",
+    ],
+  },
+  {
+    id: "ai-ticket-agent",
+    title: "AI Ticket Agent",
+    description:
+      "Backend que clasifica tickets de soporte con scikit-learn y delega la accion a un agente LLM intercambiable (Claude, OpenAI u Ollama). Bring-your-own API key.",
+    technologies: [
+      "Python 3.12",
+      "FastAPI",
+      "PostgreSQL 16",
+      "scikit-learn",
+      "Claude / OpenAI / Ollama",
+      "Docker",
+    ],
+    githubUrl: "https://github.com/julianbecerra13/ai-ticket-agent",
+    highlights: [
+      "ML clasico (scikit-learn) + agente LLM moderno en un solo pipeline",
+      "Provider de LLM intercambiable via configuracion",
+      "Automatiza responder, escalar, pedir info o cerrar duplicados",
+    ],
+  },
   {
     id: "gsa-marketing-hub",
     title: "GSA Marketing Hub",
@@ -416,4 +456,191 @@ export const stats = [
   { label: "Anos de experiencia", value: "+4" },
   { label: "Proyectos entregados", value: "12+" },
   { label: "Tecnologias dominadas", value: "15+" },
+];
+
+export const services: Service[] = [
+  {
+    id: "landing",
+    title: "Landing Profesional",
+    description:
+      "Sitio de una pagina optimizado para convertir visitantes en clientes. Ideal para lanzamiento de productos, eventos o servicios.",
+    priceFrom: "$900.000 COP",
+    duration: "5-10 dias",
+    features: [
+      "Diseno responsive moderno con tu identidad",
+      "Next.js + Tailwind (carga < 1s)",
+      "SEO tecnico y meta tags optimizados",
+      "Formulario de contacto con notificaciones",
+      "Integracion con Google Analytics",
+      "Deploy en Vercel/Netlify",
+      "1 mes de soporte incluido",
+    ],
+  },
+  {
+    id: "web-app",
+    title: "Web App a Medida",
+    description:
+      "Aplicacion web completa con backend, base de datos y panel administrativo. Para negocios que necesitan automatizar procesos.",
+    priceFrom: "$3.500.000 COP",
+    duration: "3-6 semanas",
+    highlighted: true,
+    features: [
+      "Frontend Next.js 16 + backend Go o NestJS",
+      "Autenticacion JWT / OAuth 2.0",
+      "Base de datos relacional (PostgreSQL/MySQL)",
+      "Panel de administracion",
+      "Integraciones (pagos, analytics, APIs)",
+      "CI/CD con GitHub Actions",
+      "Documentacion tecnica + capacitacion",
+      "3 meses de soporte post-entrega",
+    ],
+  },
+  {
+    id: "mobile-app",
+    title: "App Movil Flutter",
+    description:
+      "Aplicacion movil nativa para Android e iOS desde un solo codigo. Chat en tiempo real, pagos, notificaciones push y mas.",
+    priceFrom: "$4.500.000 COP",
+    duration: "5-8 semanas",
+    features: [
+      "Flutter (Android + iOS desde un codigo)",
+      "Arquitectura Clean + Riverpod",
+      "Firebase Auth, Firestore, FCM",
+      "Chat en tiempo real / videollamadas",
+      "Integracion con pagos (Wompi/Stripe)",
+      "Publicacion en Play Store",
+      "3 meses de soporte post-entrega",
+    ],
+  },
+  {
+    id: "integraciones",
+    title: "Integraciones Puntuales",
+    description:
+      "Conecta tu plataforma con servicios externos: pagos, WhatsApp Business, redes sociales o Google Workspace.",
+    priceFrom: "$800.000 COP",
+    duration: "3-7 dias",
+    features: [
+      "Pasarelas de pago (Wompi, Stripe)",
+      "WhatsApp Business Cloud API",
+      "Meta API (Instagram, Messenger, Facebook)",
+      "Google APIs (Maps, Analytics, Calendar)",
+      "OAuth 2.0 con refresh automatico",
+      "Webhooks y procesamiento async",
+      "Testing + documentacion",
+    ],
+  },
+  {
+    id: "ecommerce",
+    title: "E-commerce Completo",
+    description:
+      "Tienda online lista para vender: catalogo, carrito, checkout, pagos y panel para gestionar productos y pedidos.",
+    priceFrom: "$2.800.000 COP",
+    duration: "2-4 semanas",
+    features: [
+      "Catalogo con variantes y stock",
+      "Carrito + checkout optimizado",
+      "Integracion Wompi / Stripe",
+      "Panel admin para productos y pedidos",
+      "Envio de emails transaccionales",
+      "SEO y performance optimizados",
+      "2 meses de soporte post-entrega",
+    ],
+  },
+  {
+    id: "mantenimiento",
+    title: "Mantenimiento Mensual",
+    description:
+      "Mantengo tu plataforma funcionando, segura y actualizada. Incluye mejoras pequenas para que evolucione con tu negocio.",
+    priceFrom: "$600.000 COP / mes",
+    duration: "Mensual",
+    features: [
+      "Monitoreo y correccion de bugs",
+      "Actualizaciones de seguridad",
+      "Hasta 8 horas de mejoras / mes",
+      "Backups y verificaciones de uptime",
+      "Reporte mensual de estado",
+      "Soporte prioritario por WhatsApp/email",
+      "Descuento en nuevos desarrollos",
+    ],
+  },
+];
+
+export const processSteps: ProcessStep[] = [
+  {
+    id: "briefing",
+    number: "01",
+    title: "Briefing y cotizacion",
+    duration: "1-2 dias",
+    description:
+      "Agendamos una reunion corta para entender tu necesidad, alcance, plazos y presupuesto. Te envio una cotizacion formal con entregables claros y cronograma.",
+  },
+  {
+    id: "diseno",
+    number: "02",
+    title: "Diseno y planificacion",
+    duration: "3-7 dias",
+    description:
+      "Definimos arquitectura tecnica, wireframes si aplica, stack exacto y dividimos el proyecto en hitos. Firmamos acuerdo con cronograma y forma de pago.",
+  },
+  {
+    id: "desarrollo",
+    number: "03",
+    title: "Desarrollo iterativo",
+    duration: "Variable",
+    description:
+      "Trabajo por sprints semanales con entregas incrementales. Cada semana ves avances reales, pruebas en ambiente de staging y das feedback para ajustar.",
+  },
+  {
+    id: "lanzamiento",
+    number: "04",
+    title: "Lanzamiento y soporte",
+    duration: "Continuo",
+    description:
+      "Deploy a produccion, capacitacion de uso, documentacion tecnica entregada y periodo de garantia incluido. Siempre disponible para soporte o mejoras.",
+  },
+];
+
+export const faqItems: FAQItem[] = [
+  {
+    id: "solo-o-equipo",
+    question: "Trabajas solo o con equipo?",
+    answer:
+      "Soy el desarrollador principal en todos mis proyectos, lo que garantiza coherencia tecnica y un unico punto de contacto. Cuando un proyecto lo requiere, colaboro con disenadores UX/UI y QA de confianza para entregar resultados profesionales sin intermediarios.",
+  },
+  {
+    id: "forma-de-pago",
+    question: "Como se maneja el pago?",
+    answer:
+      "Para proyectos fijos trabajo con esquema 50% al inicio / 50% al entregar, o por hitos en proyectos largos. Acepto transferencia bancaria en Colombia, Wompi, Stripe o pagos internacionales via Wise / PayPal. Factura electronica disponible.",
+  },
+  {
+    id: "cotizacion",
+    question: "Cuanto demora recibir una cotizacion?",
+    answer:
+      "Despues de nuestra primera reunion, envio una propuesta formal en maximo 48 horas con alcance detallado, entregables, plazo y precio cerrado. Sin costo y sin compromiso.",
+  },
+  {
+    id: "garantia",
+    question: "Ofreces garantia despues de la entrega?",
+    answer:
+      "Si. Todos los proyectos incluyen un periodo de soporte post-entrega (1 a 3 meses segun el paquete) donde corrijo cualquier bug sin costo. Despues ofrezco planes de mantenimiento mensual si quieres continuar con soporte.",
+  },
+  {
+    id: "cambios",
+    question: "Que pasa si necesito cambios durante el proyecto?",
+    answer:
+      "Los ajustes razonables dentro del alcance acordado estan incluidos. Si el cambio amplia el alcance (features nuevos), lo cotizo aparte antes de ejecutarlo para que tengas control total sobre costos.",
+  },
+  {
+    id: "escalar",
+    question: "Puedo escalar el proyecto despues?",
+    answer:
+      "Claro. Todos mis proyectos se construyen con arquitectura modular pensando en crecimiento: nuevas integraciones, mas usuarios, mas features. Soy el mismo dev que mantendra el codigo, asi que la continuidad esta garantizada.",
+  },
+  {
+    id: "fuera-colombia",
+    question: "Atiendes clientes fuera de Colombia?",
+    answer:
+      "Si, trabajo remoto con clientes de toda Latinoamerica, Estados Unidos y Europa. Cotizo en USD o EUR para clientes internacionales y manejo reuniones en horarios flexibles.",
+  },
 ];
