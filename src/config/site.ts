@@ -3,7 +3,7 @@ export const siteConfig = {
   title: "Full Stack Developer",
   description:
     "Desarrollador Full Stack con +4 anos de experiencia construyendo productos digitales con Go, Next.js y Flutter.",
-  url: "https://julianbecerra.dev",
+  url: "https://julianbecerra.netlify.app",
   email: "becerrarodriguezjulian@gmail.com",
   phone: "+573212001539",
   location: "Bucaramanga, Colombia",
@@ -14,11 +14,20 @@ export const siteConfig = {
     freelancer: "https://www.freelancer.com/u/DarkPerridev",
   },
   navItems: [
-    { label: "Inicio", href: "#inicio" },
-    { label: "Sobre mi", href: "#sobre-mi" },
-    { label: "Experiencia", href: "#experiencia" },
-    { label: "Proyectos", href: "#proyectos" },
-    { label: "Skills", href: "#skills" },
-    { label: "Contacto", href: "#contacto" },
-  ],
+    { key: "home", label: "Inicio", href: "#inicio" },
+    { key: "services", label: "Servicios", href: "#servicios" },
+    { key: "process", label: "Proceso", href: "#proceso" },
+    { key: "projects", label: "Proyectos", href: "#proyectos" },
+    { key: "about", label: "Sobre mi", href: "#sobre-mi" },
+    { key: "faq", label: "FAQ", href: "#faq" },
+  ] as const,
+  cta: {
+    key: "cta",
+    label: "Cotizar proyecto",
+    href: "/cotizar",
+  },
+  quoteForm: {
+    endpoint: "https://formspree.io/f/mvzdbraw",
+    whatsappNumber: "573212001539",
+  },
 };

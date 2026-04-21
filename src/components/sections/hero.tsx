@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
+import Link from "next/link";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import { ArrowDown, Github, Linkedin } from "lucide-react";
+import { ArrowDown, ArrowRight, Github, Linkedin } from "lucide-react";
 import { siteConfig } from "@/config/site";
-import { CVDownload } from "@/components/shared/cv-download";
 import { useLocale } from "@/hooks/use-locale";
 
 const roles = [
@@ -85,16 +85,10 @@ function FloatingParticles() {
   );
 }
 
-function MagneticButton({
+function MagneticWrapper({
   children,
-  href,
-  download,
-  className,
 }: {
   children: React.ReactNode;
-  href: string;
-  download?: string;
-  className?: string;
 }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -121,9 +115,7 @@ function MagneticButton({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <a href={href} download={download} className={className}>
-        {children}
-      </a>
+      {children}
     </motion.div>
   );
 }
@@ -247,14 +239,24 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <MagneticButton
-            href="#proyectos"
-            className="group inline-flex h-12 items-center justify-center rounded-lg bg-primary px-7 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:bg-primary/90 transition-all duration-300"
-          >
-            {t.hero.viewProjects}
-            <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-0.5 transition-transform" />
-          </MagneticButton>
-          <CVDownload variant="outline" />
+          <MagneticWrapper>
+            <Link
+              href={siteConfig.cta.href}
+              className="group inline-flex h-12 items-center justify-center rounded-lg bg-primary px-7 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:bg-primary/90 transition-all duration-300"
+            >
+              {t.hero.requestQuote}
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </MagneticWrapper>
+          <MagneticWrapper>
+            <a
+              href="#servicios"
+              className="group inline-flex h-12 items-center justify-center rounded-lg border border-border bg-background/50 backdrop-blur-sm px-7 text-sm font-medium text-foreground hover:border-primary/30 hover:bg-accent transition-all duration-300"
+            >
+              {t.hero.viewServices}
+              <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-0.5 transition-transform" />
+            </a>
+          </MagneticWrapper>
         </motion.div>
 
         <motion.div
